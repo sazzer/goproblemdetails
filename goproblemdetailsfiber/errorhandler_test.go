@@ -9,7 +9,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/kinbiko/jsonassert"
 	"github.com/sazzer/goproblemdetails"
-	goproblemdetailsfiber "github.com/sazzer/goproblemdetails/fiber"
+	"github.com/sazzer/goproblemdetails/goproblemdetailsfiber"
 	"github.com/stretchr/testify/assert"
 )
 
