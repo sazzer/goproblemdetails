@@ -1,0 +1,44 @@
+linters:
+  enable-all: true
+  disable:
+    # Deprecated
+    - scopelint
+    - interfacer
+    - maligned
+    - golint
+    - exhaustivestruct
+    - ifshort
+    - deadcode
+    - nosnakecase
+    - varcheck
+    - structcheck
+    # Unwanted
+    - wrapcheck
+    - exhaustruct
+    - tagliatelle
+    - ireturn
+    - depguard
+
+linters-settings:
+  lll:
+    line-length: 120
+  varnamelen:
+    check-receiver: false
+    check-return: true
+    check-type-param: true
+    ignore-type-assert-ok: true
+    ignore-map-index-ok: true
+    ignore-chan-recv-ok: true
+    ignore-decls:
+      - t *testing.T
+      - w http.ResponseWriter
+      - r *http.Request
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gomnd # Magic numbers in tests are fine
+        - goerr113 # Inline errors in tests are fine
+        - funlen # Table tests can get long
+        - dupl # Tests can sometimes look similar
