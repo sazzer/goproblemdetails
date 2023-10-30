@@ -12,7 +12,8 @@ type Option func(*map[string]any)
 //
 // Usage:
 //
-//	problem := New(http.StatusNotFound, WithType("example-type", "Example Problem Title"))
+//	problem := goproblemdetails.New(http.StatusNotFound,
+//	  goproblemdetails.WithType("example-type", "Example Problem Title"))
 func WithType(typeValue, titleValue string) Option {
 	return func(m *map[string]any) {
 		(*m)["type"] = typeValue
@@ -29,7 +30,8 @@ func WithType(typeValue, titleValue string) Option {
 //
 // Usage:
 //
-//	problem := New(http.StatusInternalServerError, WithValue("custom-key", "Custom Value"))
+//	problem := goproblemdetails.New(http.StatusInternalServerError,
+//	  goproblemdetails.WithValue("custom-key", "Custom Value"))
 func WithValue(key string, value any) Option {
 	return func(m *map[string]any) {
 		(*m)[key] = value
@@ -44,7 +46,8 @@ func WithValue(key string, value any) Option {
 //
 // Usage:
 //
-//	problem := New(http.StatusBadRequest, WithDetail("Additional details about the problem."))
+//	problem := goproblemdetails.New(http.StatusBadRequest,
+//	  goproblemdetails.WithDetail("Additional details about the problem."))
 func WithDetail(value string) Option {
 	return WithValue("detail", value)
 }
@@ -57,7 +60,8 @@ func WithDetail(value string) Option {
 //
 // Usage:
 //
-//	problem := New(http.StatusConflict, WithInstance("http://example.com/instance/123"))
+//	problem := goproblemdetails.New(http.StatusConflict,
+//	  goproblemdetails.WithInstance("http://example.com/instance/123"))
 func WithInstance(value string) Option {
 	return WithValue("instance", value)
 }

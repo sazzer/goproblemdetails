@@ -19,7 +19,7 @@ import (
 // Example:
 //
 //	// Create a Problem instance with a status code and payload.
-//	problem := problem.New(http.StatusNotFound, problem.WithType("not-found", "Resource Not Found"))
+//	problem := goproblemdetails.New(http.StatusNotFound, goproblemdetails.WithType("not-found", "Resource Not Found"))
 //
 //	// Send the Problem response to the client.
 //	err := goproblemdetails.Send(w, problem)
