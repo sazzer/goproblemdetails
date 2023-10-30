@@ -41,4 +41,4 @@ jobs:
           go-version: ${{ matrix.GO_VERSION }}
 
       - name: Test
-        run: go test -v ./...
+        run: go list -f '{{.Dir}}' -m | xargs go test -v

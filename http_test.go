@@ -53,7 +53,7 @@ func TestSendPopulatedProblem(t *testing.T) {
 
 	assert.Equal(t, http.StatusForbidden, response.StatusCode)
 
-	assert.Equal(t, []string{"application/problem+json;charset=utf-8"}, response.Header.Values("content-type"))
+	assert.Equal(t, []string{"application/problem+json; charset=utf-8"}, response.Header.Values("content-type"))
 
 	body, err := io.ReadAll(response.Body)
 	assert.NoError(t, err)

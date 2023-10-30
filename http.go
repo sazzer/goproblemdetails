@@ -28,7 +28,7 @@ import (
 //	}
 func Send(w http.ResponseWriter, problem Problem) error {
 	if len(problem.Payload) > 0 {
-		w.Header().Add("content-type", "application/problem+json;charset=utf-8")
+		w.Header().Add("content-type", "application/problem+json; charset=utf-8")
 		w.WriteHeader(problem.StatusCode)
 
 		return json.NewEncoder(w).Encode(problem)
